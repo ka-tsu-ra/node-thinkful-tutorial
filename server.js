@@ -9,8 +9,12 @@ app.get('/', function(req, res) {
 });
 
 app.get('/jedi/:firstname/:lastname', function(req, res) {
-  res.send(req.params.firstname);
-  // console.log(req.params.firstname); this makes the first name in the url query string pop up in the terminal console but not in the Chrome inspect element console.
+  var firstname = req.params.firstname;
+  var lastname  = req.params.lastname;
+
+  var jediName = lastname.slice(0,3) + firstname.slice(0,2);
+  res.json("Hello " + jediName);
+
 });
 
 
